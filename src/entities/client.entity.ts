@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import {
   Column,
   CreateDateColumn,
@@ -24,6 +25,7 @@ class Contact {
   @CreateDateColumn()
   createdAt: Date;
 
+  @Exclude()
   @ManyToOne((type) => User, (user) => user.contacts, { onDelete: "CASCADE" })
   user: User;
 }

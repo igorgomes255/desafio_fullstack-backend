@@ -15,7 +15,7 @@ class Contact {
   @Column()
   full_name: string;
 
-  @Column({ unique: true })
+  @Column()
   email: string;
 
   @Column()
@@ -24,7 +24,7 @@ class Contact {
   @CreateDateColumn()
   createdAt: Date;
 
-  @ManyToOne((type) => User, (user) => user.clients, { onDelete: "CASCADE" })
+  @ManyToOne((type) => User, (user) => user.contacts, { onDelete: "CASCADE" })
   user: User;
 }
 export { Contact };

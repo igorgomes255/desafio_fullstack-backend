@@ -32,6 +32,6 @@ class User {
   @OneToMany((type) => Contact, (contact) => contact.user, {
     eager: true,
   })
-  clients: Contact[];
+  contacts: Contact[];
 }
 export { User };

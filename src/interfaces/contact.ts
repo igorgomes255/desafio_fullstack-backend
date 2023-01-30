@@ -4,4 +4,10 @@ interface IContactRequest {
   phone: string;
 }
 
-export { IContactRequest };
+interface IContactUpdate {
+  full_name?: string;
+  email?: string;
+  phone?: string;
+}
+
+export { IContactRequest, IContactUpdate };

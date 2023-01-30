@@ -17,13 +17,15 @@ const createContactService = async (
     (contact) => contact.email === email
   );
 
-  if (emailAlreadyExists) {
-    throw new AppError("Email already exists");
-  }
-
   const user = await userRepository.findOneBy({
     id,
   });
+
+  const emailExiste = user?.contacts.find((contact) => contact.email === email);
+
+  if (emailExiste) {
+    throw new AppError("Email already exists");
+  }
 
   const contact = contactRepository.create({
     full_name,

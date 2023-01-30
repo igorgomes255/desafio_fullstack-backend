@@ -10,11 +10,11 @@ const listContactService = async (id: string) => {
       id: id,
     },
     relations: {
-      clients: true,
+      contacts: true,
     },
   });
 
-  return contactProperties?.clients;
+  return contactProperties?.contacts;
 };
 
 export { listContactService };

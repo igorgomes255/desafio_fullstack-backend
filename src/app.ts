@@ -3,13 +3,12 @@ import "express-async-errors";
 import express from "express";
 import "express-async-errors";
 import handleErrorMiddleware from "./middlewares/handleError.middleware";
+import { appRoutes } from "./routes/routes";
 
 const app = express();
 app.use(express.json());
 
-app.get("/", (request, response) => {
-  response.send("Hello people");
-});
+appRoutes(app);
 
 app.use(handleErrorMiddleware);
 

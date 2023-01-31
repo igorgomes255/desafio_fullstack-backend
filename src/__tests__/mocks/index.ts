@@ -1,3 +1,4 @@
+import { IContactRequest } from "../../interfaces/contact";
 import {
   IUserLogin,
   IUserRequest,
@@ -37,4 +38,10 @@ export const mockedUser2Login: IUserLogin = {
 export const mockedUserWrongLogin: IUserLogin = {
   email: "user3@mail.com",
   password: "123",
+};
+
+export const mockedContact: IContactRequest = {
+  full_name: "User",
+  email: "user@user.com",
+  phone: "900000000",
 };

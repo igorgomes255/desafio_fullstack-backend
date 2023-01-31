@@ -29,6 +29,7 @@ class User {
   @CreateDateColumn()
   createdAt: Date;
 
+  @Exclude()
   @OneToMany((type) => Contact, (contact) => contact.user, {
     eager: true,
   })

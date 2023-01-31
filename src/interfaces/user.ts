@@ -26,4 +26,11 @@ interface IUserUpdate {
   phone?: string;
 }
 
-export { IUserRequest, IUser, IUserLogin, IUserUpdate };
+interface IUserRequestTest {
+  full_name: string;
+  email: string;
+  password?: string;
+  phone: string;
+}
+
+export { IUserRequest, IUser, IUserLogin, IUserUpdate, IUserRequestTest };

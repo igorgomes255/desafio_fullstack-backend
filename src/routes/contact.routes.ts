@@ -4,12 +4,21 @@ import { deleteContactController } from "../controllers/contacts/deleteContact.c
 import { listContactController } from "../controllers/contacts/listContact.controller";
 import { updateContactController } from "../controllers/contacts/updateContact.controller";
 import { verifyAuthUserMiddleware } from "../middlewares/verifyAuthUser.middleware";
+import {
+  contactCreateSchema,
+  validateContactCreate,
+} from "../middlewares/verifyContactCreate.middleware";
 import { verifyOwnerMiddleware } from "../middlewares/verifyOwner.middleware";
 
 const routes = Router();
 
 const contactRoutes = () => {
-  routes.post("", verifyAuthUserMiddleware, createContactController);
+  routes.post(
+    "",
+    validateContactCreate(contactCreateSchema),
+    verifyAuthUserMiddleware,
+    createContactController
+  );
   routes.get("", verifyAuthUserMiddleware, listContactController);
   routes.patch(
     "/:id",

@@ -21,20 +21,18 @@ const setDataSourceConfig = (): DataSourceOptions => {
     };
   }
 
-  if (nodeEnv === "production") {
-    return {
-      type: "postgres",
-      host: process.env.POSTGRES_HOST,
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      port: parseInt(process.env.POSTGRES_PORT),
-      database: process.env.POSTGRES_DB,
-      synchronize: false,
-      logging: true,
-      entities: [entitiesPath],
-      migrations: [migrationsPath],
-    };
-  }
+  return {
+    type: "postgres",
+    host: process.env.POSTGRES_HOST,
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    port: parseInt(process.env.POSTGRES_PORT),
+    database: process.env.POSTGRES_DB,
+    synchronize: false,
+    logging: true,
+    entities: [entitiesPath],
+    migrations: [migrationsPath],
+  };
 };
 
 const dataSourceConfig = setDataSourceConfig();
